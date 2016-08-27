@@ -3,5 +3,5 @@
             [tie.core]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+  (testing "math"
+    (is (= 4 (+ 2 2)))))
