@@ -7,7 +7,8 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [org.clojure/clojurescript "1.8.51"]]
 
-  :plugins [[lein-cljsbuild "1.1.4"]]
+  :plugins [[lein-cljsbuild "1.1.4"]
+            [lein-doo "0.1.7"]]
 
   :source-paths ["src"]
 
@@ -15,4 +16,10 @@
   {:builds {:test {:source-paths ["src" "test"]
                    :compiler {:output-to "target/tests/test.js"
                               :output-dir "target/tests/"
-                              :optimizations :none}}}})
+                              :main tie.test-runner
+                              :optimizations :none}}}}
+
+  :doo {:build "test"
+        :paths {:phantom "./node_modules/phantomjs-prebuilt/bin/phantomjs"}}
+
+  :aliases {"test" ["doo" "phantom" "test"]})

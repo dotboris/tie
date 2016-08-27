@@ -1,0 +1,9 @@
+{
+  "name": "tie",
+  "version": "0.0.0",
+  "description": "dev dependencies for tie project",
+  "private": true,
+  "devDependencies": {
+    "phantomjs-prebuilt": "^2.1.12"
+  }
+}
