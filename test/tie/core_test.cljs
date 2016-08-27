@@ -22,6 +22,14 @@
           (is el))
         (done))))
 
+(deftest text-should-put-nil-value-as-empty-string
+  (async done
+    (go (let [text [t/text {:atom state}]
+              el (<! (h/render< text))
+              val (.-value el)]
+          (is (= "" val)))
+        (done))))
+
 (deftest text-should-get-value-from-atom
   (async done
     (go (reset! state "foobar")
