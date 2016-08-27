@@ -10,3 +10,9 @@
     (r/render component node
       #(go (>! res (dom/getFirstElementChild node))))
     res))
+
+(defn wait< []
+  (let [c (chan)]
+    (js/setTimeout
+      #(go (>! c :done)) 1)
+    c))

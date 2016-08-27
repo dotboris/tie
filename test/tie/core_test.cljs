@@ -17,8 +17,26 @@
 
 (deftest text-should-render
   (async done
-    (go
-      (let [text [t/text {:atom state}]
-            el (<! (h/render< text))]
-        (is el)
-        (done)))))
+    (go (let [text [t/text {:atom state}]
+              el (<! (h/render< text))]
+          (is el))
+        (done))))
+
+(deftest text-should-get-value-from-atom
+  (async done
+    (go (reset! state "foobar")
+        (let [text [t/text {:atom state}]
+              el (<! (h/render< text))
+              val (.-value el)]
+          (is (= "foobar" val)))
+        (done))))
+
+(deftest text-should-update-from-atom
+  (async done
+    (go (let [text [t/text {:atom state}]
+              el (<! (h/render< text))]
+          (is (= "" (.-value el)))
+          (reset! state "stuff")
+          (<! (h/wait<))
+          (is (= "stuff" (.-value el))))
+        (done))))
