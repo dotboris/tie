@@ -1,6 +1,8 @@
 tie
 ===
 
+[![Build Status](https://travis-ci.org/dotboris/tie.svg?branch=master)](https://travis-ci.org/dotboris/tie)
+
 A ClojureScript library that provides data-bound form controls for reagent.
 
 Why
