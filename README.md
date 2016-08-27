@@ -15,3 +15,24 @@ Usage
 -----
 
 FIXME
+
+Development
+-----------
+
+### Setup
+
+Install node dependencies
+
+```sh
+npm install
+```
+
+### Running tests
+
+```sh
+# once
+lein test once
+
+# auto / watched
+lein test auto
+```
