@@ -19,7 +19,12 @@
                               :main tie.test-runner
                               :optimizations :none}}}}
 
+  :profiles
+  {:test {:dependencies [[reagent "0.6.0-rc"]
+                         [prismatic/dommy "1.1.0"]
+                         [org.clojure/core.async "0.2.385"]]}}
+
   :doo {:build "test"
         :paths {:phantom "./node_modules/phantomjs-prebuilt/bin/phantomjs"}}
 
-  :aliases {"test" ["doo" "phantom" "test"]})
+  :aliases {"test" ["with-profiles" "test" "doo" "phantom" "test"]})
