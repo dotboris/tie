@@ -1,0 +1,7 @@
+language: clojure
+
+install:
+  - npm install
+  - lein deps
+
+script: lein test once
