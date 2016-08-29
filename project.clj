@@ -22,7 +22,8 @@
   :profiles
   {:test {:dependencies [[reagent "0.6.0-rc"]
                          [prismatic/dommy "1.1.0"]
-                         [org.clojure/core.async "0.2.385"]]}}
+                         [org.clojure/core.async "0.2.385"]
+                         [cljs-react-test "0.1.4-SNAPSHOT"]]}}
 
   :doo {:build "test"
         :paths {:phantom "./node_modules/phantomjs-prebuilt/bin/phantomjs"}}

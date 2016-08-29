@@ -48,3 +48,22 @@
           (<! (h/wait<))
           (is (= "stuff" (.-value el))))
         (done))))
+
+(deftest text-should-set-atom-from-value
+  (async done
+    (go (let [text [t/text {:atom state}]
+              el (<! (h/render< text))]
+          (h/change! el "things")
+          (<! (h/wait<))
+          (is (= "things" @state)))
+        (done))))
+
+(deftest text-should-set-empty-values-as-nil
+  (async done
+    (go (reset! state "stuff")
+        (let [text [t/text {:atom state}]
+              el (<! (h/render< text))]
+          (h/change! el "")
+          (<! (h/wait<))
+          (is (nil? @state)))
+        (done))))
