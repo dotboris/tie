@@ -4,7 +4,8 @@
             [cljs.core.async :refer [>! chan]]
             [cljs-react-test.utils :as rtu]
             [cljs-react-test.simulate :as sim]
-            [goog.dom :as dom]))
+            [goog.dom :as dom]
+            [goog.events :as events]))
 
 (defn render< [component]
   (let [res (chan)
@@ -24,3 +25,15 @@
   [el val]
   (set! (.-value el) val)
   (sim/change el val))
+
+(defn click! [el]
+  (let [e (.createEvent js/document "MouseEvents")]
+    ; fun fact, js events are stupid...
+    (.initMouseEvent e
+      "click" true true js/window 0 0 0 0 0 false false false false 0 nil)
+    (.dispatchEvent el e)))
+
+(defn print-el [el]
+  (let [wrapper (rtu/new-container!)]
+    (.appendChild wrapper el)
+    (println (.-innerHTML wrapper))))

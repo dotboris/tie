@@ -11,3 +11,9 @@
            :on-change #(let [val (.. % -target -value)]
                           (reset! atom (from-input val)))
            :value (for-input @atom)}])
+
+(defn checkbox [{:keys [atom]}]
+  [:input {:type "checkbox"
+           :checked @atom
+           :on-change #(do (println "hi")
+                           (swap! atom not))}])
