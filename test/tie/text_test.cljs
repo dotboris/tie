@@ -1,4 +1,4 @@
-(ns tie.core-test
+(ns tie.text-test
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [cljs.test :refer-macros [deftest testing is use-fixtures async]]
             [cljs.core.async :refer [<!]]
