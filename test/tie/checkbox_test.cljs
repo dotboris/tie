@@ -15,7 +15,9 @@
   (async done
     (go (let [box [t/checkbox {:atom state}]
               el (<! (h/render< box))]
-          (is el))
+          (is el)
+          (is (= "INPUT" (.-tagName el)))
+          (is (= "checkbox" (.-type el))))
         (done))))
 
 (deftest it-should-not-be-checked-if-state-is-nil

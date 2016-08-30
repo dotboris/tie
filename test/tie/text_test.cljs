@@ -19,7 +19,9 @@
   (async done
     (go (let [text [t/text {:atom state}]
               el (<! (h/render< text))]
-          (is el))
+          (is el)
+          (is (= "INPUT" (.-tagName el)))
+          (is (= "text" (.-type el))))
         (done))))
 
 (deftest text-should-put-nil-value-as-empty-string

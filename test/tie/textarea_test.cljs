@@ -14,7 +14,8 @@
   (async done
     (go (let [area [t/textarea {:atom state}]
               el (<! (h/render< area))]
-          (is el))
+          (is el)
+          (is (= "TEXTAREA" (.-tagName el))))
         (done))))
 
 (deftest it-should-put-nil-value-as-empty-string
