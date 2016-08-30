@@ -29,3 +29,9 @@
             :type "checkbox"
             :checked @atom
             :on-change #(swap! atom not))])
+
+(defn radio [{:keys [atom value] :as ps}]
+  [:input (props ps
+            :type "radio"
+            :on-change #(reset! atom value)
+            :checked (= value @atom))])
