@@ -60,3 +60,17 @@
           (<! (h/wait<))
           (is (not @state)))
         (done))))
+
+(deftest it-should-assign-extra-options
+  (async done
+    (go (let [box [t/checkbox {:atom state :data-foo "bar"}]
+              el (<! (h/render< box))]
+          (is (= "bar" (.. el -dataset -foo))))
+        (done))))
+
+(deftest it-should-not-assign-atom-options
+  (async done
+    (go (let [box [t/checkbox {:atom state}]
+              el (<! (h/render< box))]
+          (is (nil? (aget el "atom"))))
+        (done))))
