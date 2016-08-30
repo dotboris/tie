@@ -10,11 +10,12 @@
   (let [without-atom (dissoc m :atom)]
     (apply assoc without-atom kvs)))
 
-(defn text [{:keys [atom]}]
-  [:input {:type "text"
-           :on-change #(let [val (.. % -target -value)]
+(defn text [{:keys [atom] :as ps}]
+  [:input (props ps
+            :type "text"
+            :on-change #(let [val (.. % -target -value)]
                           (reset! atom (from-input val)))
-           :value (for-input @atom)}])
+            :value (for-input @atom))])
 
 (defn checkbox [{:keys [atom] :as ps}]
   [:input (props ps

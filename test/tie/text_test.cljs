@@ -67,3 +67,17 @@
           (<! (h/wait<))
           (is (nil? @state)))
         (done))))
+
+(deftest it-should-assign-extra-options
+  (async done
+    (go (let [text [t/text {:atom state :data-foo "bar"}]
+              el (<! (h/render< text))]
+          (is (= "bar" (.. el -dataset -foo))))
+        (done))))
+
+(deftest it-should-not-assign-atom-options
+  (async done
+    (go (let [text [t/text {:atom state}]
+              el (<! (h/render< text))]
+          (is (nil? (aget el "atom"))))
+        (done))))
