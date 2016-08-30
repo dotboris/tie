@@ -17,6 +17,13 @@
                           (reset! atom (from-input val)))
             :value (for-input @atom))])
 
+(defn textarea [{:keys [atom] :as ps}]
+  [:textarea (props ps
+                :type "text"
+                :on-change #(let [val (.. % -target -value)]
+                              (reset! atom (from-input val)))
+                :value (for-input @atom))])
+
 (defn checkbox [{:keys [atom] :as ps}]
   [:input (props ps
             :type "checkbox"
