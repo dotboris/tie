@@ -42,11 +42,10 @@ Let's start with a quick example:
 
 ### Components
 
-You create components using the square bracket notation. All components take a
-a single argument which is a map that contains properties. All components take
-the `:atom` property which is the atom that the control is data-bound to. Other
-You can pass in extra properties. These will be passed to the underlying
-control.
+You create components using the square bracket notation. They take a map of
+properties as their first argument. Data binding is done with the `:atom`
+property. Extra properties will be passed to the underlying control. The exact
+property will vary from one component to the next.
 
 Here is a simple example with a textbox:
 
