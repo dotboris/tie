@@ -57,6 +57,9 @@ Here is a simple example with a textbox:
 This creates a textbox that is data-bound to the `some-atom` atom and that has
 the `fancy-textbox` class.
 
+For documentation on specific components, you can look at the documentation of
+the docstrings on the component functions.
+
 Development
 -----------
 
