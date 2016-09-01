@@ -37,3 +37,19 @@
   (let [wrapper (rtu/new-container!)]
     (.appendChild wrapper el)
     (println (.-innerHTML wrapper))))
+
+(defn children [el]
+  (-> el .-children js/Array.prototype.slice.call js->clj))
+
+(defn find-index [val coll]
+  (let [indexes (keep-indexed #(when (= val %2) %1)
+                              coll)]
+    (first indexes)))
+
+(defn select! [el val]
+  (let [vals (->> el
+                  children
+                  (map #(.-value %)))
+        index (find-index val vals)]
+    (set! (.-selectedIndex el) index)
+    (sim/change el val)))

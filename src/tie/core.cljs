@@ -35,3 +35,13 @@
             :type "radio"
             :on-change #(reset! atom value)
             :checked (= value @atom))])
+
+(defn select [{:keys [atom options allow-nil nil-text] :as ps}]
+  [:select (props (dissoc ps :options :allow-nil :nil-text)
+              :value (for-input @atom)
+              :on-change #(let [val (.. % -target -value)]
+                            (reset! atom (from-input val))))
+    (when allow-nil
+      [:option {:value ""} nil-text])
+    (for [[val text] options]
+      ^{:key val} [:option {:value val} text])])
