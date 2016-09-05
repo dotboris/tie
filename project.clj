@@ -1,4 +1,4 @@
-(defproject dotboris/tie "0.2.0-SNAPSHOT"
+(defproject dotboris/tie "0.2.0"
   :description "A set of data-bound form controls for reagent"
   :url "https://github.com/dotboris/tie"
   :license {:name "MIT" :url "https://opensource.org/licenses/MIT"}
