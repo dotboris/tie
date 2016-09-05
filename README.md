@@ -2,6 +2,7 @@ tie
 ===
 
 [![Build Status](https://travis-ci.org/dotboris/tie.svg?branch=master)](https://travis-ci.org/dotboris/tie)
+[![Clojars Project](https://img.shields.io/clojars/v/dotboris/tie.svg)](https://clojars.org/dotboris/tie)
 
 A ClojureScript library that provides data-bound form controls for reagent.
 
@@ -15,8 +16,6 @@ letting you just pass in the atom and the data binding is automatic.
 
 Usage
 -----
-
-[![Clojars Project](https://img.shields.io/clojars/v/dotboris/tie.svg)](https://clojars.org/dotboris/tie)
 
 Let's start with a quick example:
 
